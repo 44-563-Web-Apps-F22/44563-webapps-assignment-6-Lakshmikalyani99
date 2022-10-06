@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Webapps lab05</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" 
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+ </head>
+<body>
+<h1>Musician guess by Lakshmi Kalyani Chilakapati</h1>
+<h2>Getting input</h2>
+<form>
+<label for="SecretMusician">Enter the secret musician name </label>
+    <input type ="password" id="SecretMusician" name="SecretMusician" min=10 max=50 step=2 value="John Lennon"> <br>
+
+    <label for="GuessMusician">Guess the musician </label>
+    <input type ="text" id="GuessMusician" name="GuessMusician" autofocus> <br>
+
+    <input type="button" onclick="checkGuess()" value="Check the guess ">
+</form>
+<p id="result">This text will be replaced </p>
+
+<div class="imageContainer" >
+    <img src="cockroach.jpg" alt="Image" onclick="swapImage()" id="image" style="width: 100px; height:100px;" >
+</div>
+<script> 
+    correct=0;
+    count=0;
+let useImage=1;
+    wrong=0;
+    function checkGuess(){
+        console.log("Check the guess")
+        secret = document.getElementById("SecretMusician").value
+        guess = document.getElementById("GuessMusician").value
+        confirmed = confirm("Are these the values? "+secret+" and "+guess)          
+    
+    out = document.getElementById("result")
+
+    if(secret==guess){
+        count=0
+        console.log("Yes");
+        correct=correct+1;
+
+        alert("You got it right");
+
+    }else {
+        if(count<3){
+            wrong=wrong+1
+            count=count+1
+            alert("Access denied")
+        }  
+        else{
+            alert("Sorry, game over.")
+
+        }  
+        
+                
+
+    }
+    out.innerHTML="correct "+correct+"  wrong "+wro}
+
+
+
+function swapImage(){
+
+    
+useImage>2?useImage=1:useImage+=1;
+ 
+ switch(useImage){
+     case 1: 
+     document.getElementById("image").src = "./cockroach.jpg";
+
+     break;
+     case 2:
+     document.getElementById("image").src="./housefly.jpg";
+         break;
+     case 3:
+     document.getElementById("image").src="./inchworm.jpg";
+          break;
+      default: 
+      document.getElementById("image").src="cockroach.jpg";
+ }
+}
+    </script>
+</body>
+</html>

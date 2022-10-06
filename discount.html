@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Discounts page</title>
+ </head>
+<body>
+<h1>Lakshmi Kalyani computes discounts</h1>
+<h2>Getting input</h2>
+
+<form>
+    <form>
+        <label for="form1_age">Enter Base Amount </label>
+        <input type ="number" id="baseValue" name="form1_age" min=10 max=50 step=2 value=20> <br>
+    
+        <label for="form1_nick">Enter the Discount Percentage </label>
+        <input type ="number" id="perc" name="form1_nick" value=10> <br>
+    
+        <input type="button" onclick="discount()" value="Apply discount">
+    </form>
+</form>
+
+<p id="result"></p>
+<br>
+<form>
+    <input type="radio" onclick="chooseOp()" id="times" name="topping"   
+      value="times">
+    <label for="">*</label></br>
+    <input type="radio" onclick="chooseOp()" id="divide" name="topping"   
+       value="divide">
+    <label for="/">/</label></br>
+    <input type="radio" onclick="chooseOp()" id="exponent" name="topping"   
+       value="exponent">
+    <label for="*">**</label></br>    
+  </form>
+<p id="res">Results</p>
+<script> 
+function discount(){
+        result=""
+        console.log("Getting form values")
+        baseValue = document.getElementById("baseValue").value
+        discountValue = document.getElementById("perc").value  
+        
+        for(let i=1;i<=5;i++){
+            result=result+" "+(baseValue*i-((i*baseValue*discountValue)/100))
+    
+        }
+        
+     document.getElementById("result").innerHTML = "Discounted amounts for base "+baseValue+" are "+result;
+    }
+
+    function chooseOp(){
+        baseValue = document.getElementById("baseValue").value
+      exp = document.getElementById("perc").value
+      ou = document.getElementById("res")
+      if(document.getElementById("times").checked){
+          let z=+baseValue*exp;
+          ou.innerHTML=z
+      }
+      else if(document.getElementById("expo").checked){
+          ou.innerHTML=baseValue**exp
+      }
+      
+      else if(document.getElementById("divide").checked){
+          ou.innerHTML=baseValue/exp
+      }
+    }
+    
+</script>
+
+</body>
+</html>
